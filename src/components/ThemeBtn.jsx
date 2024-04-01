@@ -9,18 +9,19 @@ const ThemeBtn = () => {
       
       {!darkMode ? (
         <svg
-          width="35px"
-          height="35px"
+          width="25px"
+          height="25px"
           viewBox="0 0 35 35"
-          fill="#888"
+          fill="#968864"
           onClick={() => setDarkMode(true)}
           data-name="Layer 2"
           style={{
             marginRight: "16px",
             cursor: "pointer",
             position: "absolute",
-            left: "40px",
-            top: "30px",
+            left: "18px",
+            top: "8px",
+            
           }}
           id="Layer_2"
           xmlns="http://www.w3.org/2000/svg"
@@ -34,18 +35,19 @@ const ThemeBtn = () => {
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
           y="0px"
-          width="35px"
-          fill="#888"
+          width="25px"
+          fill="#fff"
           onClick={() => {
             setDarkMode(false);
           }}
           style={{
             cursor: "pointer",
             position: "absolute",
-            left: "40px",
-            top: "30px",
+            left: "18px",
+            top: "8px",
+            
           }}
-          height="35px"
+          height="25px"
           viewBox="0 0 876 876"
         >
           <g>
