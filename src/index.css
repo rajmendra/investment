@@ -66,12 +66,14 @@ line-height: 30px; /* 125% */
 
 .menu-icon:hover{
   background-color: none !important;
+
 }
-.drawer-dark .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+.drawer-dark  {
 background-color: #091B25 !important;
+
 }
 
-.drawer-light .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+.drawer-light  {
   background-color: #F6F4F1 !important;
   }
 .dark-background{
@@ -86,7 +88,9 @@ background-color: #091B25 !important;
 
 }
 
-
+::-webkit-scrollbar {
+  display: none;
+}
 
 .slick-slider .slick-slide {
   transition: transform 0.3s ease;
@@ -96,15 +100,57 @@ background-color: #091B25 !important;
   display: block;
   width: 90%;
   height: 320px;
-  transition: transform 0.3s ease;
+  transition: height 0.3s ease-in-out;
 }
 
 .slick-slide .active img{
   height: 350px;
+  
 }
 .slick-slide .unActive{
   margin-top: 30px;
 }
 .slick-slide .text-below{
   margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .slick-slider{
+    margin: 0px;
+  
+  }
+  
+  
+  
+  
+  
+}
+
+@media (max-width: 480px) {
+  .slick-slider{
+    margin: 0px;
+  
+  }
+  .slick-slide .active img{
+    height: 320px;
+    
+  }
+  .slick-slide .unActive{
+    margin-top: 0px;
+  }
+  
+  .slick-current img{
+    height: 350px;
+  }
+  .slick-cloned{
+    width: 240px !important;
+  }
+  .drawer-dark  {
+    background-color: none !important;
+    
+    }
+    .drawer-light  {
+      background-color: none !important;
+      
+      }
 }

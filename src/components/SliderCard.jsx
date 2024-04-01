@@ -14,7 +14,7 @@ const SliderCard = () => {
 
   const slides = [
     { img: SliderImg1, heading:"ESG" , text: "Lorem ipsum dolor sit amet consectetur. Lobortis tempor enim libero risus nulla. " },
-    { img: SliderImg3, heading:"Wealth Management" , text: "ellus amet at aliquet auctor id vitae non amet tincidunt. Condimentum a neque natoque scelerisque varius vitae maecenas purus. " },
+    { img: SliderImg3, heading:"Wealth Management" , text: "ellus amet at aliquet auctor id vitae non amet tincidunt.  " },
     { img: SliderImg1, heading:"Investment Management" , text: "Consequat cursus vitae sed amet elementum malesuada. A ac vitae at nulla a laoreet proin vel sed." }
   ];
 
@@ -54,13 +54,13 @@ const SliderCard = () => {
   };
 
   return (
-    <div className="slider-container">
+    <div className="slider-container px-4 md:0">
       <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div key={index} className={currentSlide === index ? "active" : "unActive"}>
+          <div key={index} className={`${currentSlide === index ? " md:active" : "md:unActive"}`}>
             <img src={slide.img} alt="slider" />
             <div className="text-below">
-               <h1 className={`font-bold text-xl ${darkMode ? "text-[#3F9CFF]" : "text-[#968864]"}`}>{slide.heading}</h1>
+               <h1 className={`font-bold px-2 text-xl ${darkMode ? "text-[#3F9CFF]" : "text-[#968864]"}`}>{slide.heading}</h1>
                <p className={`mt-2 text-center px-2 ${darkMode ? "text-[#fff]" : "text-[#2C2C2C]"}`}>{slide.text}</p>
               </div>
           </div>

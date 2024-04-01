@@ -25,7 +25,9 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 
-const drawerWidth = 300;
+const drawerWidth = 276;
+
+
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -42,9 +44,9 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: "hidden",
-  width: `calc(${theme.spacing(7)} + 1px)`,
+  width: `calc(${theme.spacing(6)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
+    width: `calc(${theme.spacing(7)} + 1px)`,
   },
 });
 
@@ -158,6 +160,13 @@ const topicList = [
   },
 ];
 
+
+
+export default function DrawerComponent() {
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
+const [darkMode, setDarkMode] = useContext(DarkModeContext);
+
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -168,19 +177,23 @@ const Drawer = styled(MuiDrawer, {
 
   ...(open && {
     ...openedMixin(theme),
-    "& .MuiDrawer-paper": openedMixin(theme),
+    "& .MuiDrawer-paper": {
+      background:darkMode ? "#091B25" : "#F6F4F1",
+      
+    },
   }),
   ...(!open && {
     ...closedMixin(theme),
-    "& .MuiDrawer-paper": closedMixin(theme),
+    "& .MuiDrawer-paper": {
+      background:darkMode ? "#091B25" : "none",
+      borderRight:"none",
+      [theme.breakpoints.up("sm")]: {
+        background:darkMode ? "#091B25" : "#F6F4F1",
+        borderRight:"1px solid rgba(0, 0, 0, 0.1)"
+      },
+    }
   }),
 }));
-
-export default function DrawerComponent() {
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
-  const [darkMode, setDarkMode] = useContext(DarkModeContext);
 
   const handleDrawerOpen = () => {
     setOpen((open) => (open === false ? true : false));
@@ -193,9 +206,10 @@ export default function DrawerComponent() {
       <Drawer
         variant="permanent"
         open={open}
-        className={`${darkMode ? "drawer-dark" : "drawer-light"}`}
+        className={` ${darkMode ? "lg:drawer-dark" : "lg:drawer-light"} `}
+        
       >
-        <DrawerHeader>
+        <DrawerHeader >
           <IconButton
             className="menu-icon"
             color="inherit"
@@ -254,6 +268,7 @@ export default function DrawerComponent() {
             position: !open ? "absolute" : "relative",
             bottom: !open ? "20px" : "",
           }}
+          className={`${!open ? "hidden md:inline" : "inline md:inline"}`}
         >
           {sidebarIcons.map((item) => (
             <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
