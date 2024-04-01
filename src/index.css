@@ -68,11 +68,11 @@ line-height: 30px; /* 125% */
   background-color: none !important;
 }
 .drawer-dark .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
-background-color: #091B25;
+background-color: #091B25 !important;
 }
 
 .drawer-light .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
-  background-color: #F6F4F1;
+  background-color: #F6F4F1 !important;
   }
 .dark-background{
   background: radial-gradient(49.77% 45.59% at 48.47% -1.07%, rgba(29, 63, 88, 0.83) 0%, #081017 100%);
