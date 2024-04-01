@@ -1,6 +1,11 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 *{
     padding: 0;
@@ -59,3 +64,47 @@ text-transform: uppercase;
 line-height: 30px; /* 125% */
 }
 
+.menu-icon:hover{
+  background-color: none !important;
+}
+.drawer-dark .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+background-color: #091B25;
+}
+
+.drawer-light .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+  background-color: #F6F4F1;
+  }
+.dark-background{
+  background: radial-gradient(49.77% 45.59% at 48.47% -1.07%, rgba(29, 63, 88, 0.83) 0%, #081017 100%);
+}
+.light-background{
+  background: #fff;
+}
+.slick-slider{
+  text-align: center;
+  margin: 40px 200px;
+
+}
+
+
+
+.slick-slider .slick-slide {
+  transition: transform 0.3s ease;
+}
+
+.slick-slide img {
+  display: block;
+  width: 90%;
+  height: 320px;
+  transition: transform 0.3s ease;
+}
+
+.slick-slide .active img{
+  height: 350px;
+}
+.slick-slide .unActive{
+  margin-top: 30px;
+}
+.slick-slide .text-below{
+  margin-top: 30px;
+}
