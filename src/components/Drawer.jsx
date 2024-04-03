@@ -174,11 +174,17 @@ const Drawer = styled(MuiDrawer, {
   flexShrink: 0,
   whiteSpace: "nowrap",
   boxSizing: "border-box",
+  
+  [theme.breakpoints.between('xs', 'sm')]: {
+    display:"none"
+  },
+  
 
   ...(open && {
     ...openedMixin(theme),
     "& .MuiDrawer-paper": {
       background:darkMode ? "#091B25" : "#F6F4F1",
+      transition: "box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms"
       
     },
   }),
@@ -187,9 +193,12 @@ const Drawer = styled(MuiDrawer, {
     "& .MuiDrawer-paper": {
       background:darkMode ? "#091B25" : "none",
       borderRight:"none",
+      transition: "box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
       [theme.breakpoints.up("sm")]: {
         background:darkMode ? "#091B25" : "#F6F4F1",
-        borderRight:"1px solid rgba(0, 0, 0, 0.1)"
+        borderRight:"1px solid rgba(0, 0, 0, 0.1)",
+      transition: "box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms"
+
       },
     }
   }),
@@ -271,7 +280,7 @@ const Drawer = styled(MuiDrawer, {
           className={`${!open ? "hidden md:inline" : "inline md:inline"}`}
         >
           {sidebarIcons.map((item) => (
-            <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
+            <ListItem key={item.id} disablePadding sx={{ display: "block" }} onClick={() => open ? setDarkMode(darkMode => darkMode===true ? false : true) : ""}>
               <ListItemButton
                 sx={{
                   minHeight: 48,

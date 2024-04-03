@@ -10,3 +10,13 @@ export const DarkModeProvider = ({ children }) => {
     </DarkModeContext.Provider>
   );
 };
+
+export const ActiveTopicContext = createContext();
+export const ActiveTopicProvider = ({ children }) => {
+  const [activeTopicIndex, setActiveTopicIndex] = useState(2); // Default index is 2
+  return (
+    <ActiveTopicContext.Provider value={{ activeTopicIndex, setActiveTopicIndex }}>
+      {children}
+    </ActiveTopicContext.Provider>
+  );
+};

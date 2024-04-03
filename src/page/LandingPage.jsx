@@ -7,6 +7,7 @@ import { Avatar } from "@mui/material";
 import Profile from "../assets/images/profile.png";
 import SliderCard from "../components/SliderCard";
 import PromptBox from "../components/PromptBox";
+import MobileDrawer from "../components/MobileDrawer";
 
 const LandingPage = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
@@ -14,11 +15,12 @@ const LandingPage = () => {
   
 
   return (
-    <div className={`flex ${darkMode ? "dark-background" : "light-background"}`}>
+    <div className={`max-w-auto flex ${darkMode ? "dark-background" : "light-background"}`}>
       
-      <DrawerComponent />
+      <DrawerComponent className="hidden md:inline" />
+      <MobileDrawer className="inline md:hidden" />
       <div
-        className={`py-2 px-1 flex flex-col w-full h-full relative md:py-8 md:px-6 overflow-hidden ${
+        className={`py-2 px-1 flex flex-col w-full h-full relative mb-[50%] lg:mb-[10%] md:py-8 md:px-6  overflow-hidden ${
           darkMode ? "dark-background" : "light-background"
         }`}
       >
