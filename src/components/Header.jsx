@@ -16,7 +16,7 @@ const Header = () => {
               className=" h-10 w-10 md:h-12 md:w-12 lg:h-16 lg:w-16"
             />
             <p
-              className={`logo-name text-[22px] md:text-[26px] lg:text-[30px]`}
+              className={`logo-name text-[20px] md:text-[26px] lg:text-[30px]`}
               style={{ color: darkMode ? "#fff" : "#968864" }}
             >
               Investment . AI

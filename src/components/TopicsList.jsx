@@ -16,11 +16,14 @@ const TopicsList = ({ activeIndex, onTopicIndexChange }) => {
   ];
 
   return (
-    <div className={`hidden py-4 px-8 justify-between md:hidden lg:flex`}>
+    <div className={`flex  justify-between overflow-auto`}>
       {navTopic.map((topic) => (
         <div
           onClick={() => onTopicIndexChange(topic.id)}
-          className={`rounded-full py-2 px-4 cursor-pointer text-center  ${
+          
+          key={topic.id}
+        >
+          <button className={`rounded-full whitespace-nowrap py-2 px-4 cursor-pointer text-center   ${
             activeIndex === topic.id
               ? darkMode
                 ? "bg-[#3F9CFF] text-[#fff]"
@@ -28,10 +31,7 @@ const TopicsList = ({ activeIndex, onTopicIndexChange }) => {
               : darkMode
               ? " text-[#fff]"
               : " text-[#2C2C2C]"
-          }  `}
-          key={topic.id}
-        >
-          <button>{topic.name}</button>
+          }  `}>{topic.name}</button>
         </div>
       ))}
     </div>

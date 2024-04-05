@@ -20,8 +20,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/topics" element={<LandingTopics />} />
       </Routes>
-      {/* <SignIn /> */}
-      {/* <PhoneVerification /> */}
+
     </BrowserRouter>
   );
 }
