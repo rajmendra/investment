@@ -8,6 +8,7 @@ import PromptBox from "../components/PromptBox";
 import WealthManagment from "./WealthManagment";
 import InvestmentManagement from "./InvestmentManagement";
 import MobileDrawer from "../components/MobileDrawer";
+import MarketPlace from "./MarketPlace";
 
 const LandingTopics = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
@@ -23,16 +24,19 @@ const LandingTopics = () => {
       <DrawerComponent  />
       <MobileDrawer />
       <div
-        className={`py-2 px-1 flex flex-col w-full h-[100vh] overflow-y-scroll relative md:py-4 md:px-6 overflow-hidden  ${
+        className={`py-2 px-1 flex flex-col w-full h-[100vh]  overflow-y-scroll relative md:py-4 md:px-6 overflow-hidden max-w-auto  ${
           darkMode ? "dark-background" : "light-background"
         }`}
       >
         <Header />
-
+        <div className="py-4">
         <TopicsList activeIndex={activeTopicIndex} onTopicIndexChange={handleTopicIndexChange} />
+        </div>
+        
         {activeTopicIndex === 1 && <WealthManagment />} 
         {activeTopicIndex === 2 && <ESGPage />} 
         {activeTopicIndex === 3 && <InvestmentManagement />} 
+        {activeTopicIndex === 4 && <MarketPlace />} 
 
         <PromptBox />
       </div>

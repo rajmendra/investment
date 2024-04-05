@@ -59,7 +59,7 @@ body{
 .logo-name{
     /* color: #968864; */
 font-family: "Bruno Ace SC";
-font-size: 24px;
+/* font-size: 24px; */
 font-style: normal;
 font-weight: 400;
 text-transform: uppercase;
@@ -115,16 +115,15 @@ background-color: #091B25 !important;
 .slick-slide .text-below{
   margin-top: 30px;
 }
+.pagination-width{
+  width: 520px !important;
+}
 
 @media (max-width: 768px) {
   .slick-slider{
     margin: 0px;
   
   }
-  
-  
-  
-  
   
 }
 

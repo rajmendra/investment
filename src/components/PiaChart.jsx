@@ -21,6 +21,7 @@ const PiaChart = ({ name, colors, values }) => {
           }}
           colorScale={colors}
           data={values}
+          
         />
 
       </div>

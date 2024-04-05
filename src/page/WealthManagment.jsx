@@ -90,16 +90,16 @@ const WealthManagment = () => {
   ];
 
   return (
-    <div className=" py-6 mb-32 px-0 md:py-6 md:px-8 relative ">
+    <div className=" py-0 px-0 md:py-6 md:px-8 relative ">
       <AvatarWithHeader
         avatar={darkMode ? BotAvatarDark : BotAvatarLight}
         title="Wealth Management"
       />
-      <div className="py-8 px-4">
+      <div className="py-8 px-2 md:px-4">
         <div className="flex justify-between items-center">
           <div>
             <p
-              className={`font-normal md:font-semibold text-[16px] md:text-[20px] ${
+              className={`font-normal md:font-semibold text-[15px] md:text-[20px] ${
                 darkMode ? "text-[#fff]" : "text-[#525252]"
               }`}
             >
@@ -135,7 +135,7 @@ const WealthManagment = () => {
             ))}
           </div>
         </div>
-        <div className="py-8 px-0 block md:flex justify-between overflow-x-scroll relative">
+        <div className="py-8 px-0 block md:flex justify-between overflow-y-scroll md:overflow-x-scroll relative">
           {data.map((chartData) => (
             <div className="px-2 " key={chartData.id}>
               <PieChart
@@ -150,7 +150,7 @@ const WealthManagment = () => {
         style={{
           position: "absolute",
           top: "14%",
-          right: "29%",
+          right: "25%",
           transform: "translateX(-50%)",
           width: 0,
           height: "80%",
@@ -163,7 +163,7 @@ const WealthManagment = () => {
         height="128"
         viewBox="0 0 24 24"
         fill={darkMode ? "#c4bebe" : " #DEDEDE"}
-        style={{ position: "absolute", top: "10%", right: "26%", transform: "rotate(180deg)" }}
+        style={{ position: "absolute", top: "10%", right: "22%", transform: "rotate(180deg)" }}
         className="inline md:hidden opacity-[0.7]"
       >
         <path d="M0 0h24v24H0z" fill="none" />
@@ -174,7 +174,7 @@ const WealthManagment = () => {
       <p style={{
           position: "absolute",
           top: "16%",
-          right: "6%",
+          right: "0",
           width:"80px",
           fontSize:"14px"
 

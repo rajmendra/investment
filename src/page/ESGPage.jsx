@@ -12,7 +12,7 @@ const ESGPage = () => {
   
 
   return (
-    <div className=" py-6 mb-32 px-0 md:py-6 md:px-8 relative ">
+    <div className="mb-32 py-0 px-0 md:py-6 md:px-8 relative max-w-6xl ">
          <AvatarWithHeader avatar={Profile} title="Environmental, social and governance (ESG)" />
           <div className="pl-14 py-2 lg:px-14">
             <p
@@ -24,7 +24,7 @@ const ESGPage = () => {
             </p>
             <div className="flex mt-2 justify-between flex-nowrap  gap-5 overflow-auto lg:overflow-visible ">
               <div
-                className="flex-none w-[270px] md:w-[260px] lg:w-[350px]  "
+                className="flex-none w-[270px] md:w-[260px] lg:w-[350px]  max-w-6xl"
                 
               >
                 <NewsCard
@@ -34,7 +34,7 @@ const ESGPage = () => {
                 />
               </div>
               <div
-               className="flex-none w-[270px] md:w-[260px]  lg:w-[350px]"
+               className="flex-none w-[270px] md:w-[260px]  lg:w-[350px] max-w-6xl"
               >
                 <NewsCard
                   CompanyName={CompanyName}
@@ -43,7 +43,7 @@ const ESGPage = () => {
                 />
               </div>
               <div
-                className="flex-none w-[270px] md:w-[260px]  lg:w-[350px]"
+                className="flex-none w-[270px] md:w-[260px]  lg:w-[350px] max-w-6xl"
               >
                 <NewsCard
                   CompanyName={CompanyName}
