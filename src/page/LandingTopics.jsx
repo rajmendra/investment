@@ -24,7 +24,7 @@ const LandingTopics = () => {
       <DrawerComponent  />
       <MobileDrawer />
       <div
-        className={`py-2 px-1 flex flex-col w-full h-[100vh]  overflow-y-scroll relative md:py-4 md:px-6 overflow-hidden max-w-auto  ${
+        className={`py-2 mb-32 px-1 flex flex-col w-full h-[100vh]  overflow-y-scroll relative md:py-4 md:px-6 overflow-hidden max-w-auto  ${
           darkMode ? "dark-background" : "light-background"
         }`}
       >

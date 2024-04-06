@@ -16,7 +16,7 @@ const TopicsList = ({ activeIndex, onTopicIndexChange }) => {
   ];
 
   return (
-    <div className={`flex  justify-between overflow-auto`}>
+    <div className={`flex px-4 md:px-6  justify-between overflow-auto`}>
       {navTopic.map((topic) => (
         <div
           onClick={() => onTopicIndexChange(topic.id)}
