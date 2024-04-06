@@ -5,6 +5,15 @@ import AvatarWithHeader from "../components/AvatarWithHeader";
 import { DarkModeContext } from "../context";
 import PieChart from "../components/PiaChart";
 
+import Profile from "../assets/images/profile.png";
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+import ThumbDownOffAltOutlinedIcon from '@mui/icons-material/ThumbDownOffAltOutlined';
+import VolumeUpOutlinedIcon from '@mui/icons-material/VolumeUpOutlined';
+import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
+import TuneOutlinedIcon from '@mui/icons-material/TuneOutlined';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+
+
 const WealthManagment = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
 
@@ -135,6 +144,7 @@ const WealthManagment = () => {
             ))}
           </div>
         </div>
+        <div className="relative">
         <div className="py-8 px-0 block md:flex justify-between overflow-y-scroll md:overflow-x-scroll relative">
           {data.map((chartData) => (
             <div className="px-2 " key={chartData.id}>
@@ -169,7 +179,7 @@ const WealthManagment = () => {
         <path d="M0 0h24v24H0z" fill="none" />
         <path d="M12 15V3h2v12h7l-8 8-8-8h7z" strokeWidth="1" />
       </svg>
-
+      </div>
       </div>
       <p style={{
           position: "absolute",
@@ -183,6 +193,25 @@ const WealthManagment = () => {
         >
       Decreasing investment risk and increasing inflation risk
       </p>
+      <AvatarWithHeader
+        avatar={Profile}
+        title="Analyse my Investment and show my investment profile"
+      />
+      <div className='py-6 px-1'>
+      <AvatarWithHeader
+        avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+        subtitle="Wealth management is like having a personal financial coach for your money. It goes beyond investing, encompassing financial planning, tax reduction, and legacy planning. It's ideal for those with complex finances, ambitious goals, or who lack the time/expertise to manage it themselves. While traditionally for the wealthy, it's becoming more accessible to others. Fees can vary, so research before choosing a manager."
+      />
+      <div className='py-4 px-16 md:px-12 lg:px-8 flex gap-4 items-center'>
+            <ThumbUpOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
+            <ThumbDownOffAltOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
+            <VolumeUpOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
+            <ContentCopyRoundedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
+            <TuneOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
+            <FileDownloadOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
+
+      </div>
+      </div>
     </div>
   );
 };

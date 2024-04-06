@@ -1,40 +1,79 @@
 import React, { useContext } from 'react'
-import AvatarWithHeader from '../components/AvatarWithHeader'
 import { DarkModeContext } from '../context';
-import BotAvatarLight from "../assets/images/BotAvatarLight.png";
-import BotAvatarDark from "../assets/images/BotAvatarDark.png";
-import Profile from "../assets/images/profile.png";
-import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
-import ThumbDownOffAltOutlinedIcon from '@mui/icons-material/ThumbDownOffAltOutlined';
-import VolumeUpOutlinedIcon from '@mui/icons-material/VolumeUpOutlined';
-import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
-import TuneOutlinedIcon from '@mui/icons-material/TuneOutlined';
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import MarketPlaceCard from '../components/MarketPlaceCard';
+
+const marketPlaceData = [
+  {
+    id: 1,
+    title:"RFP Response Auto-Complete",
+    description: "Automate the completion of RFP/DDQ's within the app which offers ye approved draft responses from Loopio and the flexibility to personalize answers with ease, using Large Language Models (LLM). Please note the output of the solution requires thorough human",
+    ratingLength: 4
+  },
+  {
+    id: 2,
+    title:"Flowriter",
+    description: "Flowriter is a generative Al solution, which assists macroeconomic content draft generation and acts as a writing assistant (copilot) to the economists from the iFlow tear (Markets), who publish iFlow Morning Briefings and Short Thoughts and other economic analysis content",
+    ratingLength: 3
+  },
+  {
+    id: 3,
+    title:"Code Modernization- COBOL to Microservice (C2M)",
+    description: "Moderize Code using Al/ML to remediate Mainframe dependency",
+    ratingLength: 4
+  },
+  {
+    id: 4,
+    title:"Email Classification",
+    description: "Email classification service classifies client service emeils into one of cight services cutegories. The solution supports operations tears, treasury teurns, etc. and is being expanded to other LOB service teams. It also encompusses user feedback through the app.",
+    ratingLength: 4
+  },
+  
+  {
+    id: 5,
+    title:"Investor Relations Assistant",
+    description: "Investor Relations Assistant enables Investor Relations and leaders to keep pulse of trends and target messaging to",
+    ratingLength: 4
+  },
+  {
+    id: 6,
+    title:"CEO Copilot",
+    description: "CEO Copilot capability enables BNYM Leadership to better engage with executive reports, beginning with key weekly updates across the globe",
+    ratingLength: 3
+  },
+  {
+    id: 7,
+    title:"Ownership Verification",
+    description: "Automate entity extraction, annotation and reconciliation for bank loan ownership verification within Trust and Dependency",
+    ratingLength: 4
+  },
+  {
+    id: 8,
+    title:"Al Ops - Ground Truth",
+    description: "The Ground Truth system is a foundation for artificial intelligence model assessment, tracking, and monitoring. The system is integrated with all relevant data for each project",
+    ratingLength: 3
+  },
+  {
+    id: 9,
+    title:"Al Ops - ModelOp",
+    description: "ModelOp Center ModelOp Center (MOC) is composed of a set of flexible and extensible micro services that enable the consistent Deployment, Monitoring, and Governance of all analytical models, regardless of the model factory from which they were developed",
+    ratingLength: 4
+  },
+
+]
 
 
 const MarketPlace = () => {
     const [darkMode, setDarkMode] = useContext(DarkModeContext);
   return (
-    <div className=" py-0 mb-32 px-0 md:py-6 md:px-8 relative ">
-        <AvatarWithHeader
-        avatar={Profile}
-        title="Analyse my Investment and show my investment profile"
-      />
-      <div className='py-6 px-1'>
-      <AvatarWithHeader
-        avatar={darkMode ? BotAvatarDark : BotAvatarLight}
-        subtitle="Wealth management is like having a personal financial coach for your money. It goes beyond investing, encompassing financial planning, tax reduction, and legacy planning. It's ideal for those with complex finances, ambitious goals, or who lack the time/expertise to manage it themselves. While traditionally for the wealthy, it's becoming more accessible to others. Fees can vary, so research before choosing a manager."
-      />
-      <div className='py-4 px-16 md:px-12 lg:px-8 flex gap-4 items-center'>
-            <ThumbUpOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-            <ThumbDownOffAltOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-            <VolumeUpOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-            <ContentCopyRoundedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-            <TuneOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-            <FileDownloadOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-
-      </div>
-      </div>
+    <div className=" py-0 mb-32 px-2 md:py-6 md:px-8 relative ">
+        <div className='flex flex-wrap gap-4'>
+          {marketPlaceData.map((item) =>(
+            <MarketPlaceCard title={item.title} description={item.description} ratingLength={item.ratingLength}  />
+          ))}
+        
+        
+        </div>
+        
 
     </div>
   )
