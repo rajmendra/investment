@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import DrawerComponent from "../components/Drawer";
 import LightLogo from "../assets/images/logo_light.png";
 import LogoIcon from "../assets/images/logo_light_02.png";
@@ -11,11 +11,13 @@ import MobileDrawer from "../components/MobileDrawer";
 
 const LandingPage = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
+  
 
   
 
   return (
-    <div className={`max-w-auto flex ${darkMode ? "dark-background" : "light-background"}`}>
+    <>
+     <div className={`max-w-auto flex ${darkMode ? "dark-background" : "light-background"}`}>
       
       <DrawerComponent className="hidden md:inline" />
       <MobileDrawer className="inline md:hidden" />
@@ -67,6 +69,8 @@ const LandingPage = () => {
         <PromptBox />
       </div>
     </div>
+    </>
+   
   );
 };
 

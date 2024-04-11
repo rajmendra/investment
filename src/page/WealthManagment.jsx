@@ -6,13 +6,8 @@ import { DarkModeContext } from "../context";
 import PieChart from "../components/PiaChart";
 
 import Profile from "../assets/images/profile.png";
-import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
-import ThumbDownOffAltOutlinedIcon from '@mui/icons-material/ThumbDownOffAltOutlined';
-import VolumeUpOutlinedIcon from '@mui/icons-material/VolumeUpOutlined';
-import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
-import TuneOutlinedIcon from '@mui/icons-material/TuneOutlined';
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-
+import ActionsIcons from "../components/ActionsIcons";
+import CompossedLineBarArea from "../components/CompossedLineBarArea";
 
 const WealthManagment = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
@@ -99,7 +94,7 @@ const WealthManagment = () => {
   ];
 
   return (
-    <div className=" py-0 px-0 md:py-6 md:px-8 relative ">
+    <div className=" py-0 px-0 md:py-6 md:px-2 relative ">
       <AvatarWithHeader
         avatar={darkMode ? BotAvatarDark : BotAvatarLight}
         title="Wealth Management"
@@ -145,72 +140,121 @@ const WealthManagment = () => {
           </div>
         </div>
         <div className="relative">
-        <div className="py-8 px-0 block md:flex justify-between overflow-y-scroll md:overflow-x-scroll relative">
-          {data.map((chartData) => (
-            <div className="px-2 " key={chartData.id}>
-              <PieChart
-                name={chartData.name}
-                colors={chartData.colors}
-                values={chartData.values}
-              />
-            </div>
-          ))}
+          <div className="py-8 px-0 block md:flex justify-between overflow-y-scroll md:overflow-x-scroll relative">
+            {data.map((chartData) => (
+              <div className="px-2 " key={chartData.id}>
+                <PieChart
+                  name={chartData.name}
+                  colors={chartData.colors}
+                  values={chartData.values}
+                />
+              </div>
+            ))}
+          </div>
+          <div
+            className="inline md:hidden"
+            style={{
+              position: "absolute",
+              top: "14%",
+              right: "25%",
+              transform: "translateX(-50%)",
+              width: 0,
+              height: "80%",
+              borderLeft: `${
+                darkMode ? "2px solid #c4bebe" : "2px solid #DEDEDE"
+              } `,
+            }}
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="128"
+            viewBox="0 0 24 24"
+            fill={darkMode ? "#c4bebe" : " #DEDEDE"}
+            style={{
+              position: "absolute",
+              top: "10%",
+              right: "22%",
+              transform: "rotate(180deg)",
+            }}
+            className="inline md:hidden opacity-[0.7]"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 15V3h2v12h7l-8 8-8-8h7z" strokeWidth="1" />
+          </svg>
         </div>
-        <div className="inline md:hidden"
+      </div>
+      <p
         style={{
-          position: "absolute",
-          top: "14%",
-          right: "25%",
-          transform: "translateX(-50%)",
-          width: 0,
-          height: "80%",
-          borderLeft: `${darkMode ? "2px solid #c4bebe" : "2px solid #DEDEDE"} `,
-        }}
-      />
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="25"
-        height="128"
-        viewBox="0 0 24 24"
-        fill={darkMode ? "#c4bebe" : " #DEDEDE"}
-        style={{ position: "absolute", top: "10%", right: "22%", transform: "rotate(180deg)" }}
-        className="inline md:hidden opacity-[0.7]"
-      >
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M12 15V3h2v12h7l-8 8-8-8h7z" strokeWidth="1" />
-      </svg>
-      </div>
-      </div>
-      <p style={{
           position: "absolute",
           top: "16%",
           right: "0",
-          width:"80px",
-          fontSize:"14px"
-
+          width: "80px",
+          fontSize: "14px",
         }}
-        className={`inline md:hidden ${darkMode ? "text-[#fff]" : "text-[#525252]"}`}
-        >
-      Decreasing investment risk and increasing inflation risk
+        className={`inline md:hidden ${
+          darkMode ? "text-[#fff]" : "text-[#525252]"
+        }`}
+      >
+        Decreasing investment risk and increasing inflation risk
       </p>
       <AvatarWithHeader
         avatar={Profile}
         title="Analyse my Investment and show my investment profile"
+        botAvatar={false}
       />
-      <div className='py-6 px-1'>
-      <AvatarWithHeader
-        avatar={darkMode ? BotAvatarDark : BotAvatarLight}
-        subtitle="Wealth management is like having a personal financial coach for your money. It goes beyond investing, encompassing financial planning, tax reduction, and legacy planning. It's ideal for those with complex finances, ambitious goals, or who lack the time/expertise to manage it themselves. While traditionally for the wealthy, it's becoming more accessible to others. Fees can vary, so research before choosing a manager."
-      />
-      <div className='py-4 px-16 md:px-12 lg:px-8 flex gap-4 items-center'>
-            <ThumbUpOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-            <ThumbDownOffAltOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-            <VolumeUpOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-            <ContentCopyRoundedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-            <TuneOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-            <FileDownloadOutlinedIcon className={`cursor-pointer ${darkMode ? "text-[#fff]" :"text-[#968864]"}`} />
-
+      <div className="py-6 px-1">
+        <AvatarWithHeader
+          avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+          subtitle="Wealth management is like having a personal financial coach for your money. It goes beyond investing, encompassing financial planning, tax reduction, and legacy planning. It's ideal for those with complex finances, ambitious goals, or who lack the time/expertise to manage it themselves. While traditionally for the wealthy, it's becoming more accessible to others. Fees can vary, so research before choosing a manager."
+          botAvatar={true}
+       />
+        <div className="py-4 px-16 md:px-12 lg:px-8 flex gap-4 items-center">
+          <ActionsIcons />
+        </div>
       </div>
+      <div className="flex w-full flex-col md:overflow-visible md:flex-row md:gap-2 lg:gap-0">
+        <div className="w-full md:w-[50%] lg:w-[48%]">
+          <AvatarWithHeader
+            avatar={Profile}
+            subtitle="Analyse and compare uploaded Sheets"
+            botAvatar={false}
+          />
+          <div className="py-6 px-1">
+            <AvatarWithHeader
+              avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+              subtitle="Wealth management is like having a personal financial coach for your money. It goes beyond investing, encompassing financial planning, tax reduction, and legacy planning. It's ideal for those with complex finances, ambitious goals, or who lack the time/expertise to manage it themselves. While traditionally for the wealthy, it's becoming more accessible to others. Fees can vary, so research before choosing a manager."
+              botAvatar={true}
+            />
+          </div>
+          <CompossedLineBarArea colors={["#FF715B","#6665DD"]} />
+          <div className="py-6 px-10">
+          <p className={`text-[14px] md:text-[16px] lg:text-[16px]   ${
+                darkMode ? "text-[#fff]" : "text-[#2C2C2C]"
+              }`}>Lorem ipsum dolor sit amet consectetur. Adipiscing pulvinar aliquet commodo feugiat elit dolor ut. Pretium in arcu ultrices bibendum neque nulla. </p>
+          </div>
+        </div>
+        <div className="hidden md:w-[0%] md:inline lg:w-[4%]"></div>
+        <div className="w-full md:w-[50%] lg:w-[48%]">
+          <AvatarWithHeader
+            avatar={Profile}
+            subtitle="Analyse and compare uploaded Sheets"
+            botAvatar={false}
+          />
+          <div className="py-6 px-1">
+            <AvatarWithHeader
+              avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+              subtitle="It goes beyond investing, encompassing financial planning, tax reduction, and legacy planning. It's ideal for those with complex finances, ambitious goals, or who lack the time/expertise to manage it themselves. While traditionally for the wealthy, it's becoming more accessible to others."
+              botAvatar={true}
+            />
+          </div>
+          <CompossedLineBarArea colors={["#FCFF5B","#19AA87"]} />
+          <div className="py-6 px-10">
+          <p className={`text-[14px] md:text-[16px] lg:text-[16px]   ${
+                darkMode ? "text-[#fff]" : "text-[#2C2C2C]"
+              }`}>Porttitor auctor ultricies commodo aenean sit magna arcu. Purus amet non suspendisse nec nulla purus ut. Eget arcu faucibus enim faucibus mauris et.  </p>
+          </div>
+        </div>
       </div>
     </div>
   );

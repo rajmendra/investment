@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import ESGPage from "./ESGPage";
-import { ActiveTopicContext, DarkModeContext } from "../context";
+import {  DarkModeContext } from "../context";
 import DrawerComponent from "../components/Drawer";
 import Header from "../components/Header";
 import TopicsList from "../components/TopicsList";
@@ -9,14 +9,16 @@ import WealthManagment from "./WealthManagment";
 import InvestmentManagement from "./InvestmentManagement";
 import MobileDrawer from "../components/MobileDrawer";
 import MarketPlace from "./MarketPlace";
+import { ActiveTopicsContext } from "../context/topics";
 
 const LandingTopics = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
-  const [activeTopicIndex, setActiveTopicIndex] = useState(1); 
+  const [activeIndex, setActiveIndex] = useContext(ActiveTopicsContext); 
 
   const handleTopicIndexChange = (index, e) => {
-    setActiveTopicIndex(index); 
+    setActiveIndex(index); 
   };
+  
   return (
     <div
       className={`flex ${darkMode ? "dark-background" : "light-background"}`}
@@ -30,13 +32,13 @@ const LandingTopics = () => {
       >
         <Header />
         <div className="py-4">
-        <TopicsList activeIndex={activeTopicIndex} onTopicIndexChange={handleTopicIndexChange} />
+        <TopicsList activeIndex={activeIndex} onTopicIndexChange={handleTopicIndexChange} />
         </div>
         
-        {activeTopicIndex === 1 && <WealthManagment />} 
-        {activeTopicIndex === 2 && <ESGPage />} 
-        {activeTopicIndex === 3 && <InvestmentManagement />} 
-        {activeTopicIndex === 4 && <MarketPlace />} 
+        {activeIndex === 1 && <WealthManagment />} 
+        {activeIndex === 2 && <ESGPage />} 
+        {activeIndex === 3 && <InvestmentManagement />} 
+        {activeIndex === 4 && <MarketPlace />} 
 
         <PromptBox />
       </div>
