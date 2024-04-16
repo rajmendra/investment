@@ -27,7 +27,7 @@ import ThemeBtn from './ThemeBtn';
 import { useContext } from 'react';
 import { DarkModeContext } from '../context';
 
-const drawerWidth = 240;
+const drawerWidth = 330;
 const sidebarIcons = [
     {
       id: 1,
@@ -201,7 +201,7 @@ export default function MobileDrawer() {
           >
             <MenuIcon className={`${darkMode ? "text-[#3F9CFF]" : "text-[#968864]"}`} />
           </IconButton>
-          <Header />
+          <Header  />
         </Toolbar>
       </AppBar>
       <Drawer

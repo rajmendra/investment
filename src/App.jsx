@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from "./page/LandingPage";
 import ESGPage from "./page/ESGPage";
 import LandingTopics from "./page/LandingTopics";
+import Settings from "./page/Settings";
 
 function App() {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login/phone-verification" element={<PhoneVerification />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/topics" element={<LandingTopics />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
 
     </BrowserRouter>
