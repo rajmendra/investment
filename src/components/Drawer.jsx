@@ -24,6 +24,7 @@ import { DarkModeContext } from "../context";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import {useNavigate} from 'react-router-dom'
 
 const drawerWidth = 276;
 
@@ -59,23 +60,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const sidebarIcons = [
-  {
-    id: 1,
-    text: "Theme",
-    icon: <ThemeBtn />,
-  },
-  {
-    id: 2,
-    text: "Settings",
-    icon: <SettingsOutlinedIcon sx={{ width: "1.2em", height: "1.2em" }} />,
-  },
-  {
-    id: 3,
-    text: "Help",
-    icon: <HelpOutlineIcon sx={{ width: "1.2em", height: "1.2em" }} />,
-  },
-];
+
 
 const topicList = [
   {
@@ -166,6 +151,25 @@ export default function DrawerComponent() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 const [darkMode, setDarkMode] = useContext(DarkModeContext);
+const navigate = useNavigate();
+
+const sidebarIcons = [
+  {
+    id: 1,
+    text: "Theme",
+    icon: <ThemeBtn   />,
+  },
+  {
+    id: 2,
+    text: "Settings",
+    icon: <SettingsOutlinedIcon sx={{ width: "1.2em", height: "1.2em" }} />,
+  },
+  {
+    id: 3,
+    text: "Help",
+    icon: <HelpOutlineIcon sx={{ width: "1.2em", height: "1.2em" }} />,
+  },
+];
 
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -280,12 +284,13 @@ const Drawer = styled(MuiDrawer, {
           className={`${!open ? "hidden md:inline" : "inline md:inline"}`}
         >
           {sidebarIcons.map((item) => (
-            <ListItem key={item.id} disablePadding sx={{ display: "block" }} onClick={() => open ? setDarkMode(darkMode => darkMode===true ? false : true) : ""}>
+            <ListItem key={item.id} disablePadding sx={{ display: "block" }} >
               <ListItemButton
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",
                 }}
+                onClick={() => open && (item.id===1 ) ? setDarkMode(darkMode => darkMode===true ? false : true) : (item.id===2) ? navigate('/settings') :""}
               >
                 <ListItemIcon
                   sx={{
