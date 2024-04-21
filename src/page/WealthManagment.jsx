@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import BotAvatarLight from "../assets/images/BotAvatarLight.png";
 import BotAvatarDark from "../assets/images/BotAvatarDark.png";
 import AvatarWithHeader from "../components/AvatarWithHeader";
@@ -8,9 +8,13 @@ import PieChart from "../components/PiaChart";
 import Profile from "../assets/images/profile.png";
 import ActionsIcons from "../components/ActionsIcons";
 import CompossedLineBarArea from "../components/CompossedLineBarArea";
+import PromptBox from "../components/PromptBox";
+import PopupComponent from "../components/PopupComponent";
 
 const WealthManagment = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
+  const [popupActive, setPopupActive] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const data = [
     {
@@ -93,6 +97,16 @@ const WealthManagment = () => {
     },
   ];
 
+
+  const handleClickOpen = () => {
+    setOpen(true);
+    setPopupActive(true)
+
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div className=" py-0 px-0 md:py-6 md:px-2 relative ">
       <AvatarWithHeader
@@ -202,12 +216,14 @@ const WealthManagment = () => {
         avatar={Profile}
         title="Analyse my Investment and show my investment profile"
         botAvatar={false}
+        optionMenu={true}
       />
       <div className="py-6 px-1">
         <AvatarWithHeader
           avatar={darkMode ? BotAvatarDark : BotAvatarLight}
           subtitle="Wealth management is like having a personal financial coach for your money. It goes beyond investing, encompassing financial planning, tax reduction, and legacy planning. It's ideal for those with complex finances, ambitious goals, or who lack the time/expertise to manage it themselves. While traditionally for the wealthy, it's becoming more accessible to others. Fees can vary, so research before choosing a manager."
           botAvatar={true}
+          optionMenu={false}
        />
         <div className="py-4 px-16 md:px-12 lg:px-8 flex gap-4 items-center">
           <ActionsIcons />
@@ -233,6 +249,7 @@ const WealthManagment = () => {
                 darkMode ? "text-[#fff]" : "text-[#2C2C2C]"
               }`}>Lorem ipsum dolor sit amet consectetur. Adipiscing pulvinar aliquet commodo feugiat elit dolor ut. Pretium in arcu ultrices bibendum neque nulla. </p>
           </div>
+          
         </div>
         <div className="hidden md:w-[0%] md:inline lg:w-[4%]"></div>
         <div className="w-full md:w-[50%] lg:w-[48%]">
@@ -254,8 +271,18 @@ const WealthManagment = () => {
                 darkMode ? "text-[#fff]" : "text-[#2C2C2C]"
               }`}>Porttitor auctor ultricies commodo aenean sit magna arcu. Purus amet non suspendisse nec nulla purus ut. Eget arcu faucibus enim faucibus mauris et.  </p>
           </div>
+          
         </div>
       </div>
+      <div className="py-10">
+      <button onClick={handleClickOpen} className={` text-white py-2 px-4 rounded-md ${
+          darkMode ? "bg-[#3F9CFF]" : "bg-[#968864]"
+        }`}>Open Popup</button>
+      </div>
+      
+        {popupActive && 
+         <PopupComponent open={open} setOpen={setOpen} handleClose={handleClose} handleClickOpen={handleClickOpen} />
+        }
     </div>
   );
 };

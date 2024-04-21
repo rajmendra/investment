@@ -40,7 +40,8 @@ const LandingTopics = () => {
         {activeIndex === 3 && <InvestmentManagement />} 
         {activeIndex === 4 && <MarketPlace />} 
 
-        <PromptBox />
+         <PromptBox  />
+        
       </div>
     </div>
   );

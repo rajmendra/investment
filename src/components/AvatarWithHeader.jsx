@@ -5,7 +5,7 @@ import { Avatar } from '@mui/material';
 import OptionMenu from './OptionMenu';
 
 
-const AvatarWithHeader = ({avatar, title, subtitle, botAvatar}) => {
+const AvatarWithHeader = ({avatar, title, subtitle, botAvatar, optionMenu}) => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
 
   return (
@@ -32,7 +32,7 @@ const AvatarWithHeader = ({avatar, title, subtitle, botAvatar}) => {
             >
               {subtitle}
             </h1>}
-            {title  && <OptionMenu />}
+            {title  && optionMenu && <OptionMenu />}
 
           </div>
   )
