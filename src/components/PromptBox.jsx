@@ -9,7 +9,7 @@ const PromptBox = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
 
   return (
-    <div className={`fixed ${darkMode ? "bg-transparent" : "bg-white"}  bottom-0 w-[100%] md:w-[90%] lg:right-[-32px] lg:w-full py-16 px-4 pr-[20px] md:py-28 md:px-8 lg:py-10 lg:px-16 `}>
+    <div className={`fixed ${darkMode ? "bg-transparent" : "bg-transparent"}  bottom-0 w-[100%] md:w-[90%] lg:right-[-32px] lg:w-full py-16 px-4 pr-[20px] md:py-28 md:px-8 lg:py-10 lg:px-16 `}>
       <form className="space-y-6" action="#" method="POST">
         <div>
           <div className="mt-2">

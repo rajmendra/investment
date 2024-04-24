@@ -10,11 +10,14 @@ import ActionsIcons from "../components/ActionsIcons";
 import CompossedLineBarArea from "../components/CompossedLineBarArea";
 import PromptBox from "../components/PromptBox";
 import PopupComponent from "../components/PopupComponent";
+import PopupChatbot from "../components/PopupChatbot";
 
 const WealthManagment = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
   const [popupActive, setPopupActive] = useState(false);
+  const [popupActiveChatbot, setPopupActiveChatbot] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openChatbot, setOpenChatbot] = useState(false);
 
   const data = [
     {
@@ -106,6 +109,14 @@ const WealthManagment = () => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleClickChatbot = () =>{
+    setOpenChatbot(true);
+    setPopupActiveChatbot(true)
+  }
+  const handleCloseChatbot = () => {
+    setOpenChatbot(false);
   };
   return (
     <div className=" py-0 px-0 md:py-6 md:px-2 relative ">
@@ -274,15 +285,30 @@ const WealthManagment = () => {
           
         </div>
       </div>
+      <div className="relative ">
+      {popupActiveChatbot && 
+          <PopupChatbot openChatbot={openChatbot} setOpenChatbot={setOpenChatbot} handleCloseChatbot={handleCloseChatbot} />
+        }
+      </div>
+     
       <div className="py-10">
       <button onClick={handleClickOpen} className={` text-white py-2 px-4 rounded-md ${
           darkMode ? "bg-[#3F9CFF]" : "bg-[#968864]"
         }`}>Open Popup</button>
       </div>
+      <div className="py-40">
+      <button onClick={handleClickChatbot} className={` text-white py-2 px-4 rounded-md ${
+          darkMode ? "bg-[#3F9CFF]" : "bg-[#968864]"
+        }`}>Open Chatbot</button>
+      </div>
       
         {popupActive && 
          <PopupComponent open={open} setOpen={setOpen} handleClose={handleClose} handleClickOpen={handleClickOpen} />
         }
+        <div className=" ">
+        <PromptBox />
+
+        </div>
     </div>
   );
 };
