@@ -119,6 +119,12 @@ background-color: #091B25 !important;
   width: 520px !important;
 }
 
+.chatbot-shadow{
+  box-shadow: 0px 52px 112px 24px rgba(8, 7, 7, 0.40);
+}
+.chatinput-shadow{
+  box-shadow:  2px 37px 16px rgba(0, 0, 0, 0.07);
+}
 @media (max-width: 768px) {
   .slick-slider{
     margin: 0px;
