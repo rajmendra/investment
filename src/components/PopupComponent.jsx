@@ -17,8 +17,6 @@ import Profile from "../assets/images/profile.png";
 import BotAvatarLight from "../assets/images/BotAvatarLight.png";
 import BotAvatarDark from "../assets/images/BotAvatarDark.png";
 
-
-
 const chatDetails = [
   {
     id: 1,
@@ -55,11 +53,12 @@ export default function PopupComponent({
   handleClickOpen,
 }) {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
+  const [activePopup, setActivePopup] = React.useState(true)
 
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     "& .MuiDialog-paper": {
       borderRadius: "24px",
-      backgroundColor: darkMode ? "#091B25" : "#fff"
+      backgroundColor: darkMode ? "#091B25" : "#fff",
     },
     "& .MuiDialogContent-root": {
       padding: theme.spacing(2),
@@ -68,61 +67,61 @@ export default function PopupComponent({
       padding: theme.spacing(1),
     },
   }));
+  
 
+  const handleClosePopup = () =>{
+    setActivePopup(false)
+  }
   return (
-    <React.Fragment>
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-        fullWidth="lg"
-        maxWidth="lg"
-      >
-        <div className="py-4 px-6">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center  gap-2">
-              <h1
-                className={`text-[16px] md:text-[18px] lg:text-[24px] ${
-                  darkMode ? "text-[#3F9CFF]" : "text-[#968864]"
-                }`}
-              >
-                Analyse my Investment and show my investment profile
-              </h1>
+    
+    <div
+    className={`py-8 px-4 z-10   ${darkMode ? "bg-[#091B25]": "bg-[#fff]"}  w-full absolute chatbot-shadow rounded-[24px]`}
+  >
+      <div className="flex justify-between items-center">
+        <div className="flex items-center  gap-2">
+          <h1
+            className={`text-[16px] md:text-[18px] lg:text-[24px] ${
+              darkMode ? "text-[#3F9CFF]" : "text-[#968864]"
+            }`}
+          >
+            Analyse my Investment and show my investment profile
+          </h1>
 
-              <OptionMenu />
-            </div>
-            <CloseIcon onClick={handleClose} sx={{ cursor: "pointer", color:darkMode?"#fff" : "#1E1E1E" }} />
-          </div>
-          <div className="pb-4">
-            <p className={`${darkMode ? "text-[#fff]" : "text-[#787777]"}`}>13March 2024,11:00AM</p>
-          </div>
-          <Divider />
-            <div className="py-4" >
-          {chatDetails.map((item) => (
-
-                <div key={item.id}>
-                <div className="py-2">
-                <AvatarWithHeader
-                  avatar={Profile}
-                  title={item.title}
-                  botAvatar={false}
-                  optionMenu={false}
-                />
-              </div>
-              <div className="py-2 px-2.5">
-                <AvatarWithHeader
-                  avatar={darkMode ? BotAvatarDark : BotAvatarLight}
-                  subtitle={item.subtitle}
-                  botAvatar={true}
-                  optionMenu={false}
-                />
-              </div>
-                </div>
-              ))}
-            </div>
-         
+          <OptionMenu />
         </div>
-      </BootstrapDialog>
-    </React.Fragment>
+        <CloseIcon
+          onClick={handleClosePopup}
+          sx={{ cursor: "pointer", color: darkMode ? "#fff" : "#1E1E1E" }}
+        />
+      </div>
+      <div className="pb-4">
+        <p className={`${darkMode ? "text-[#fff]" : "text-[#787777]"}`}>
+          13March 2024,11:00AM
+        </p>
+      </div>
+      <Divider />
+      <div className="py-4">
+        {chatDetails.map((item) => (
+          <div key={item.id}>
+            <div className="py-2">
+              <AvatarWithHeader
+                avatar={Profile}
+                title={item.title}
+                botAvatar={false}
+                optionMenu={false}
+              />
+            </div>
+            <div className="py-2 px-2.5">
+              <AvatarWithHeader
+                avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+                subtitle={item.subtitle}
+                botAvatar={true}
+                optionMenu={false}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

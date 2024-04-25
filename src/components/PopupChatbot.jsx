@@ -16,14 +16,16 @@ const PopupChatbot = ({ openChatbot, setOpenChatbot, handleCloseChatbot }) => {
         <img
           src={darkMode ? DarkThemeChatBot : LightThemeChatBot}
           alt="chatbot"
-          className="w-10 h-14"
+          className="w-8 h-12 md:w-10 md:h-14"
         />
         <div className={`flex flex-col w-full`}>
-          <h1 className={` lg:text-[16px] font-normal ${darkMode ? "text-[#fff]" : "text-[#2C2C2C]"}`}>
+          <h1 className={` text-[16px] font-normal ${darkMode ? "text-[#fff]" : "text-[#2C2C2C]"}`}>
             Hi I'm IRIS friendly neighbor hood chatbot. How can I help you?
           </h1>
-          <div className="py-2 w-[80%]">
-            <div className="flex gap-2 w-full">
+          <p className={`inline md:hidden lg:text-[14px] ${darkMode ? "text-[#fff]" : "text-[#5D5D5D]"}`}>2 minutes ago</p>
+
+          <div className="py-2 w-full md:w-[80%]">
+            <div className="flex flex-col md:flex-row gap-2 w-full">
               <button
                 className={`lg:text-[14px]  flex items-center w-full justify-center font-semibold rounded-md px-3 py-1.5 text-xs leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
                   darkMode
@@ -53,10 +55,10 @@ const PopupChatbot = ({ openChatbot, setOpenChatbot, handleCloseChatbot }) => {
               </button>
             </div>
           </div>
-          <p className={`lg:text-[14px] ${darkMode ? "text-[#fff]" : "text-[#5D5D5D]"}`}>2 minutes ago</p>
+          <p className={`hidden md:block lg:text-[14px] ${darkMode ? "text-[#fff]" : "text-[#5D5D5D]"}`}>2 minutes ago</p>
         </div>
       </div>
-      <div className="py-4 w-[80%] ">
+      <div className="py-4 w-full md:w-[80%] ">
         <div className="flex flex-col">
           <div className="float-right justify-end flex items-center gap-4 py-2">
             <Avatar src={Profile} sx={{ width: "40px", height: "40px" }} />
@@ -69,7 +71,7 @@ const PopupChatbot = ({ openChatbot, setOpenChatbot, handleCloseChatbot }) => {
             <img
               src={darkMode ? DarkThemeChatBot : LightThemeChatBot}
               alt="chatbot"
-              className="w-10 h-14"
+              className="w-8 h-12 md:w-10 md:h-14"
             />
             <div className="flex flex-col">
               <p className={`lg:text-[14px] ${darkMode ? "text-[#fff]" : "text-[#5D5D5D]"}`}>Typing....</p>
@@ -79,7 +81,7 @@ const PopupChatbot = ({ openChatbot, setOpenChatbot, handleCloseChatbot }) => {
         </div>
        
       </div>
-      <div className="px-32 relative">
+      <div className="md:px-12 lg:px-32 relative hidden md:block">
         <form className="space-y-6" action="#" method="POST">
         <div>
           <div className="mt-2">
@@ -99,7 +101,7 @@ const PopupChatbot = ({ openChatbot, setOpenChatbot, handleCloseChatbot }) => {
           </div>
         </div>
 
-        <div className='absolute bottom-[39.5%] right-[4.5%]  md:bottom-[42.5%] md:right-[3%] lg:bottom-[14.5%] lg:right-[10.5%]'>
+        <div className='absolute bottom-[39.5%] right-[4.5%]  md:bottom-[16.5%] md:right-[8%] lg:bottom-[14.5%] lg:right-[10.5%]'>
           <SendSharpIcon className={`${darkMode ? "text-[#3F9CFF]" : "text-[#968864]"}`} sx={{width:"2em", height:"1.5em", cursor:"pointer"}} />
         </div>
        
