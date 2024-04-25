@@ -120,10 +120,14 @@ const WealthManagment = () => {
   };
   return (
     <div className=" py-0 px-0 md:py-6 md:px-2 relative ">
+      {popupActive && 
+         <PopupComponent open={open} setOpen={setOpen} handleClose={handleClose} handleClickOpen={handleClickOpen} />
+        }
       <AvatarWithHeader
         avatar={darkMode ? BotAvatarDark : BotAvatarLight}
         title="Wealth Management"
       />
+      
       <div className="py-8 px-2 md:px-4">
         <div className="flex justify-between items-center">
           <div>
@@ -302,9 +306,7 @@ const WealthManagment = () => {
         }`}>Open Chatbot</button>
       </div>
       
-        {popupActive && 
-         <PopupComponent open={open} setOpen={setOpen} handleClose={handleClose} handleClickOpen={handleClickOpen} />
-        }
+        
         <div className=" ">
         <PromptBox />
 

@@ -9,7 +9,7 @@ const PromptBox = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
 
   return (
-    <div className={`fixed ${darkMode ? "bg-transparent" : "bg-transparent"}  bottom-0 w-[100%] md:w-[90%] lg:right-[-32px] lg:w-full py-16 px-4 pr-[20px] md:py-28 md:px-8 lg:py-10 lg:px-16 `}>
+    <div className={`fixed ${darkMode ? "bg-transparent" : "bg-transparent"}  bottom-0 w-[100%] md:w-[90%] lg:right-[-32px] lg:w-full py-16 px-4 pr-[20px] md:py-12 md:px-8 lg:py-10 lg:px-16 `}>
       <form className="space-y-6" action="#" method="POST">
         <div>
           <div className="mt-2">
@@ -29,10 +29,10 @@ const PromptBox = () => {
           </div>
         </div>
 
-        <div className='absolute bottom-[64%] right-[6%] md:bottom-[62%] md:right-[3%] lg:bottom-[70%] lg:right-[6%]'>
+        <div className='absolute bottom-[64%] right-[6%] md:bottom-[66%] md:right-[5%] lg:bottom-[70%] lg:right-[6%]'>
           <img src={darkMode ? DarkThemeChatBot : LightThemeChatBot} alt="chatbot" className='w-12 h-16' />
         </div>
-        <div className='absolute bottom-[39.5%] right-[4.5%]  md:bottom-[42.5%] md:right-[3%] lg:bottom-[34.5%] lg:right-[5.5%]'>
+        <div className='absolute bottom-[39.5%] right-[4.5%]  md:bottom-[36.5%] md:right-[5%] lg:bottom-[34.5%] lg:right-[5.5%]'>
           <InsertPhotoIcon className={`${darkMode ? "text-[#3F9CFF]" : "text-[#968864]"}`} sx={{width:"2em", height:"1.5em", cursor:"pointer"}} />
           <KeyboardVoiceOutlinedIcon className={`${darkMode ? "text-[#3F9CFF]" : "text-[#968864]"}`}  sx={{width:"2em", height:"1.5em", cursor:"pointer"}} />
         </div>
