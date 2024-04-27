@@ -68,7 +68,7 @@ function ComposedLineBarArea({colors}) {
     const yTicks = [0, 10000, 20000, 30000, 40000, 50000, 60000];
   return (
     <div className="w-full min-w-[250px] md:min-w-[300px] md:h-[250px]  lg:min-w-[500px] lg:h-[350px]">
-      <ResponsiveContainer width="100%" height={250}>
+      <ResponsiveContainer width="100%" height={350}>
         <ComposedChart
           width={800}
           height={450}

@@ -5,6 +5,7 @@ import CompanyName from "../assets/images/company_02.png";
 import CompanyBgImage from "../assets/images/company_bg_02.png";
 import AvatarWithHeader from "../components/AvatarWithHeader";
 import Profile from "../assets/images/profile.png";
+import PromptBox from "../components/PromptBox";
 
 
 const ESGPage = () => {
@@ -12,7 +13,7 @@ const ESGPage = () => {
   
 
   return (
-    <div className="mb-32 py-0 px-0 md:py-6 md:px-8 relative max-w-6xl ">
+    <div className=" py-0 px-0 md:py-6 md:px-8 relative max-w-6xl h-[60vh] overflow-scroll">
          <AvatarWithHeader avatar={Profile} title="Environmental, social and governance (ESG)" />
           <div className="pl-14 py-2 lg:px-14">
             <p
@@ -149,6 +150,10 @@ const ESGPage = () => {
               </div>
             </div>
           </div>
+          <div className=" ">
+        <PromptBox />
+
+        </div>
         </div>
   );
 };
