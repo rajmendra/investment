@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { DarkModeContext } from '../context';
 import MarketPlaceCard from '../components/MarketPlaceCard';
+import PromptBox from '../components/PromptBox';
 
 const marketPlaceData = [
   {
@@ -65,7 +66,7 @@ const marketPlaceData = [
 const MarketPlace = () => {
     const [darkMode, setDarkMode] = useContext(DarkModeContext);
   return (
-    <div className=" py-0 mb-32 px-2 md:py-6 md:px-8 relative ">
+    <div className=" py-0 px-2 md:py-6 md:px-8 relative h-[60vh] overflow-scroll">
         <div className='flex flex-wrap gap-4'>
           {marketPlaceData.map((item) =>(
             <MarketPlaceCard title={item.title} description={item.description} ratingLength={item.ratingLength}  />
@@ -74,7 +75,10 @@ const MarketPlace = () => {
         
         </div>
         
+          <div>
+        <PromptBox />
 
+          </div>
     </div>
   )
 }

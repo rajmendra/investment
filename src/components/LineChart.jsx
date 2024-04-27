@@ -27,6 +27,7 @@ ChartJS.register(
   const styles = {
     fontFamily: "sans-serif",
     textAlign: "center",
+   
   };
 
 const LineChart = () => {
@@ -121,7 +122,7 @@ const LineChart = () => {
       };
     
       const lineOptions = {
-        // responsive: true,
+        responsive: true,
         scales: {
           xAxes: [
             {
@@ -159,10 +160,11 @@ const LineChart = () => {
         tooltips: {
           enabled: false,
         },
+        
       };
   return (
     <div style={styles}>
-    <Line data={data} options={lineOptions} />
+    <Line data={data} options={lineOptions} width={"600px"} height={"400px"} />
   </div>
   )
 }

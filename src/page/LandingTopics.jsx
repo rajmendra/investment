@@ -42,7 +42,7 @@ const LandingTopics = () => {
         {activeIndex === 2 && <ESGPage />}
         {activeIndex === 3 && <InvestmentManagement />}
         {activeIndex === 4 && <MarketPlace />}
-        {activeIndex !== 1 && <PromptBox />}
+        
       </div>
     </div>
   );

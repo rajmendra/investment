@@ -7,6 +7,7 @@ import { PieChart, Pie, Legend, Tooltip } from "recharts";
 import { AgChartsReact } from "ag-charts-react";
 import LineChart from "../components/LineChart";
 import Slider from "react-slick";
+import PromptBox from "../components/PromptBox";
 
 const PieChartData = [
   { asset: "Stocks", amount: 48, yield: 2.7 },
@@ -64,7 +65,7 @@ const InvestmentManagement = () => {
   
 
   return (
-    <div className=" py-0 mb-32 px-0 md:py-6 md:px-8 relative ">
+    <div className=" py-0  px-0 md:py-6 md:px-8 relative h-[60vh] overflow-scroll">
       <AvatarWithHeader
         avatar={darkMode ? BotAvatarDark : BotAvatarLight}
         title="Investment Mangement"
@@ -86,10 +87,13 @@ const InvestmentManagement = () => {
           <LineChart />
         </div>
       </div>
-      <div className={`py-2 px-8 md:px-16 md:text-[13px] lg:text-[16px] ${darkMode ? "#fff" : "text-[#424241]"}`}>
+      <div className={`py-2 px-8 md:px-16 md:text-[13px] lg:text-[16px] ${darkMode ? "text-[#fff]" : "text-[#424241]"}`}>
           <p>Lorem ipsum dolor sit amet consectetur. Adipiscing pulvinar aliquet commodo feugiat elit dolor ut. Pretium in arcu ultrices bibendum neque nulla. Porttitor auctor ultricies commodo aenean sit magna arcu. Purus amet non suspendisse nec nulla purus ut. Eget arcu faucibus enim faucibus mauris et. </p>
       </div>
+        <div>
+        <PromptBox />
 
+        </div>
       
     </div>
   );

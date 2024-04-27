@@ -11,6 +11,9 @@ import CompossedLineBarArea from "../components/CompossedLineBarArea";
 import PromptBox from "../components/PromptBox";
 import PopupComponent from "../components/PopupComponent";
 import PopupChatbot from "../components/PopupChatbot";
+import ExcelImg from '../assets/images/excel.png'
+import PdfImg from '../assets/images/pdf_icon.png'
+import DocsImg from '../assets/images/word_icon.png'
 
 const WealthManagment = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
@@ -100,6 +103,18 @@ const WealthManagment = () => {
     },
   ];
 
+  const articleData = [
+    {
+      id:1,
+      topic:"https://www.investopedia.com/articles/basics/11/3-s-simple-investing.asp is a great introduction to investing, covering the basics of asset classes, diversification, and portfolio management. "
+    },
+    {
+      id:2,
+      topic:"https://www.investopedia.com/articles/basics/11/3-s-simple-investing.asp is a great introduction to investing, covering the basics of asset classes, diversification, and portfolio management. "
+    },
+
+  ]
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -119,7 +134,7 @@ const WealthManagment = () => {
     setOpenChatbot(false);
   };
   return (
-    <div className=" py-0 px-0 md:py-6 md:px-2 relative ">
+    <div className=" py-0 px-0 md:py-6 md:px-2 relative h-[60vh] overflow-scroll">
       {popupActive && 
          <PopupComponent open={open} setOpen={setOpen} handleClose={handleClose} handleClickOpen={handleClickOpen} />
         }
@@ -211,9 +226,7 @@ const WealthManagment = () => {
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M12 15V3h2v12h7l-8 8-8-8h7z" strokeWidth="1" />
           </svg>
-        </div>
-      </div>
-      <p
+          <p
         style={{
           position: "absolute",
           top: "16%",
@@ -227,6 +240,9 @@ const WealthManagment = () => {
       >
         Decreasing investment risk and increasing inflation risk
       </p>
+        </div>
+      </div>
+     
       <AvatarWithHeader
         avatar={Profile}
         title="Analyse my Investment and show my investment profile"
@@ -264,6 +280,9 @@ const WealthManagment = () => {
                 darkMode ? "text-[#fff]" : "text-[#2C2C2C]"
               }`}>Lorem ipsum dolor sit amet consectetur. Adipiscing pulvinar aliquet commodo feugiat elit dolor ut. Pretium in arcu ultrices bibendum neque nulla. </p>
           </div>
+          <div>
+          <PromptBox />
+          </div>
           
         </div>
         <div className="hidden md:w-[0%] md:inline lg:w-[4%]"></div>
@@ -286,9 +305,140 @@ const WealthManagment = () => {
                 darkMode ? "text-[#fff]" : "text-[#2C2C2C]"
               }`}>Porttitor auctor ultricies commodo aenean sit magna arcu. Purus amet non suspendisse nec nulla purus ut. Eget arcu faucibus enim faucibus mauris et.  </p>
           </div>
+          <div>
+          <PromptBox />
+          </div>
           
         </div>
       </div>
+      <div className="flex w-full flex-col md:overflow-visible md:flex-row md:gap-2 lg:gap-0">
+        <div className="w-full md:w-[50%] lg:w-[48%]">
+          
+          <div className="py-6 px-1">
+            <AvatarWithHeader
+              avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+              subtitle="Jan24-Statement.pdf"
+              botAvatar={true}
+            />
+          </div>
+          <AvatarWithHeader
+            avatar={Profile}
+            subtitle="Analyse uploaded Sheetss"
+            botAvatar={false}
+          />
+          <div className="py-6 px-1">
+            <AvatarWithHeader
+              avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+              subtitle="Wealth management is like having a personal financial coach for your money. It goes beyond investing, encompassing financial planning, tax reduction, and legacy planning. "
+              botAvatar={true}
+            />
+          </div>
+          <CompossedLineBarArea colors={["#FF715B","#6665DD"]} />
+          <AvatarWithHeader
+            avatar={Profile}
+            subtitle="Odio sit at a dictum vestibulum et vitae. Interdum enim arcu tincidunt iaculis egestas at. "
+            botAvatar={false}
+          />
+          <div className="py-6 px-1">
+            <AvatarWithHeader
+              avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+              subtitle="Consequat pulvinar maecenas pretium bibendum lorem posuere nibh pellentesque. Ac id dignissim non diam viverra cursus ut vitae. "
+              botAvatar={true}
+            />
+          </div>
+          <AvatarWithHeader
+            avatar={Profile}
+            subtitle="Odio sit at a dictum vestibulum et vitae. Interdum enim arcu tincidunt iaculis egestas at. "
+            botAvatar={false}
+          />
+          <div className="flex px-12 gap-4">
+              <div className="flex flex-col items-center justify-center">
+                  <img src={ExcelImg} alt="excel icon"  className="w-12 h-12"/>
+                  <p className={`font-bold text-[14px] ${darkMode ? "text-[#fff]" :"text-[#2C2C2C]"}`}>Jan’24.exl</p>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                  <img src={PdfImg} alt="pdf icon"  className="w-10 h-12"/>
+                  <p className={`font-bold text-[14px] ${darkMode ? "text-[#fff]" :"text-[#2C2C2C]"}`}>Lorem.pdf</p>
+              </div>
+          </div>
+          <div className="py-6 px-1">
+            <AvatarWithHeader
+              avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+              botAvatar={true}
+              articleData={articleData}
+            />
+          </div>
+          <div>
+          
+          <PromptBox />
+          </div>
+          
+        </div>
+        <div className="hidden md:w-[0%] md:inline lg:w-[4%]"></div>
+        <div className="w-full md:w-[50%] lg:w-[48%]">
+          
+          <div className="py-6 px-1">
+            <AvatarWithHeader
+              avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+              subtitle="Feb24-Statement.pdf "
+              botAvatar={true}
+            />
+          </div>
+          <AvatarWithHeader
+            avatar={Profile}
+            subtitle="Show  Investment options"
+            botAvatar={false}
+          />
+          <div className="py-6 px-1">
+            <AvatarWithHeader
+              avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+              botAvatar={true}
+              graph={true}
+            />
+          </div>
+
+          <AvatarWithHeader
+            avatar={Profile}
+            subtitle="Suggest Articles "
+            botAvatar={false}
+          />
+          <div className="py-6 px-1">
+            <AvatarWithHeader
+              avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+              botAvatar={true}
+              articleData={articleData}
+            />
+          </div>
+          <AvatarWithHeader
+            avatar={Profile}
+            subtitle="Ac id dignissim non diam viverra cursus ut vitae. "
+            botAvatar={false}
+          />
+          <div className="flex px-12 gap-4">
+              <div className="flex flex-col items-center justify-center">
+                  <img src={PdfImg} alt="excel icon"  className="w-10 h-12"/>
+                  <p className={`font-bold text-[14px] ${darkMode ? "text-[#fff]" :"text-[#2C2C2C]"}`}>Jan’24.pdf</p>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                  <img src={DocsImg} alt="pdf icon"  className="w-12 h-12"/>
+                  <p className={`font-bold text-[14px] ${darkMode ? "text-[#fff]" :"text-[#2C2C2C]"}`}>Analysis.docx</p>
+              </div>
+          </div>
+          <div className="py-6 px-1">
+            <AvatarWithHeader
+              avatar={darkMode ? BotAvatarDark : BotAvatarLight}
+              botAvatar={true}
+              articleData={articleData}
+            />
+          </div>
+          <div>
+            
+          <PromptBox />
+          </div>
+          
+        </div>
+      </div>
+
       <div className="relative ">
       {popupActiveChatbot && 
           <PopupChatbot openChatbot={openChatbot} setOpenChatbot={setOpenChatbot} handleCloseChatbot={handleCloseChatbot} />
@@ -305,6 +455,7 @@ const WealthManagment = () => {
           darkMode ? "bg-[#3F9CFF]" : "bg-[#968864]"
         }`}>Open Chatbot</button>
       </div>
+
       
         
         <div className=" ">
