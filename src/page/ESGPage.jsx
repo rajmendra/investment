@@ -13,7 +13,7 @@ const ESGPage = () => {
   
 
   return (
-    <div className=" py-0 px-0 md:py-6 md:px-8 relative max-w-6xl h-[60vh] overflow-scroll">
+    <div className=" py-0 px-0 md:py-6 md:px-8 relative max-w-auto h-[60vh] overflow-scroll">
          <AvatarWithHeader avatar={Profile} title="Environmental, social and governance (ESG)" />
           <div className="pl-14 py-2 lg:px-14">
             <p
@@ -151,7 +151,7 @@ const ESGPage = () => {
             </div>
           </div>
           <div className=" ">
-        <PromptBox />
+        <PromptBox full={true} />
 
         </div>
         </div>

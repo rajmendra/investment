@@ -76,7 +76,7 @@ const MarketPlace = () => {
         </div>
         
           <div>
-        <PromptBox />
+        <PromptBox full={true} />
 
           </div>
     </div>

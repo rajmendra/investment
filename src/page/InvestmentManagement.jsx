@@ -91,7 +91,7 @@ const InvestmentManagement = () => {
           <p>Lorem ipsum dolor sit amet consectetur. Adipiscing pulvinar aliquet commodo feugiat elit dolor ut. Pretium in arcu ultrices bibendum neque nulla. Porttitor auctor ultricies commodo aenean sit magna arcu. Purus amet non suspendisse nec nulla purus ut. Eget arcu faucibus enim faucibus mauris et. </p>
       </div>
         <div>
-        <PromptBox />
+        <PromptBox full={true} />
 
         </div>
       

@@ -5,11 +5,11 @@ import DarkThemeChatBot from '../assets/images/DarkThemeChatBot.png';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import KeyboardVoiceOutlinedIcon from '@mui/icons-material/KeyboardVoiceOutlined';
 
-const PromptBox = () => {
+const PromptBox = ({left, right, full}) => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
 
   return (
-    <div className={`fixed ${darkMode ? "bg-transparent" : "bg-transparent"}  bottom-0 w-[100%] md:w-[90%] lg:right-[-32px] lg:w-full py-16 px-4 pr-[20px] md:py-12 md:px-8 lg:py-10 lg:px-16 `}>
+    <div className={ `  fixed ${darkMode ? "bg-transparent" : "bg-transparent"}  bottom-0 w-[100%] ${left ? 'lg:left-[20px] ' : 'lg:right-[-32px] ' } ${full ? "md:w-[90%] md:right-[-16px] lg:w-full " : 'md:w-[45%] lg:w-[50%]'}   py-16 px-4 pr-[20px] md:py-12 md:px-8 lg:py-10 lg:px-16 `}>
       <form className="space-y-6" action="#" method="POST">
         <div>
           <div className="mt-2">
@@ -29,10 +29,10 @@ const PromptBox = () => {
           </div>
         </div>
 
-        <div className='absolute bottom-[64%] right-[6%] md:bottom-[66%] md:right-[5%] lg:bottom-[70%] lg:right-[6%]'>
+        <div className={`absolute bottom-[64%] right-[6%]  md:bottom-[66%] ${full ? "md:right-[5%] lg:right:[6%]" : 'md:right-[8%] lg:right-[10%]'}  lg:bottom-[70%] `}>
           <img src={darkMode ? DarkThemeChatBot : LightThemeChatBot} alt="chatbot" className='w-12 h-16' />
         </div>
-        <div className='absolute bottom-[39.5%] right-[4.5%]  md:bottom-[36.5%] md:right-[5%] lg:bottom-[34.5%] lg:right-[5.5%]'>
+        <div className={`absolute bottom-[39.5%] right-[4.5%]  md:bottom-[36.5%] ${full ? 'md:right-[5%] lg:right-[5.5%]':'md:right-[10%] lg:right-[10.5%]'}   lg:bottom-[34.5%] `}>
           <InsertPhotoIcon className={`${darkMode ? "text-[#3F9CFF]" : "text-[#968864]"}`} sx={{width:"2em", height:"1.5em", cursor:"pointer"}} />
           <KeyboardVoiceOutlinedIcon className={`${darkMode ? "text-[#3F9CFF]" : "text-[#968864]"}`}  sx={{width:"2em", height:"1.5em", cursor:"pointer"}} />
         </div>

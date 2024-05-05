@@ -134,7 +134,7 @@ const WealthManagment = () => {
     setOpenChatbot(false);
   };
   return (
-    <div className=" py-0 px-0 md:py-6 md:px-2 relative h-[60vh] overflow-scroll">
+    <div className={` py-0 px-0 md:py-6 md:px-2 relative ${popupActiveChatbot ? "h-full" : "h-[60vh]" } overflow-scroll`}>
       {popupActive && 
          <PopupComponent open={open} setOpen={setOpen} handleClose={handleClose} handleClickOpen={handleClickOpen} />
         }
@@ -305,9 +305,7 @@ const WealthManagment = () => {
                 darkMode ? "text-[#fff]" : "text-[#2C2C2C]"
               }`}>Porttitor auctor ultricies commodo aenean sit magna arcu. Purus amet non suspendisse nec nulla purus ut. Eget arcu faucibus enim faucibus mauris et.  </p>
           </div>
-          <div>
-          <PromptBox />
-          </div>
+          
           
         </div>
       </div>
@@ -370,7 +368,7 @@ const WealthManagment = () => {
           </div>
           <div>
           
-          <PromptBox />
+          <PromptBox right={true} full={false} />
           </div>
           
         </div>
@@ -433,23 +431,24 @@ const WealthManagment = () => {
           </div>
           <div>
             
-          <PromptBox />
+          <PromptBox left={true} full={false} />
           </div>
           
         </div>
       </div>
 
+      
       <div className="relative ">
       {popupActiveChatbot && 
           <PopupChatbot openChatbot={openChatbot} setOpenChatbot={setOpenChatbot} handleCloseChatbot={handleCloseChatbot} />
         }
       </div>
-     
       <div className="py-10">
       <button onClick={handleClickOpen} className={` text-white py-2 px-4 rounded-md ${
           darkMode ? "bg-[#3F9CFF]" : "bg-[#968864]"
         }`}>Open Popup</button>
       </div>
+      
       <div className="py-40">
       <button onClick={handleClickChatbot} className={` text-white py-2 px-4 rounded-md ${
           darkMode ? "bg-[#3F9CFF]" : "bg-[#968864]"
@@ -458,10 +457,10 @@ const WealthManagment = () => {
 
       
         
-        <div className=" ">
+        {/* <div className=" ">
         <PromptBox />
 
-        </div>
+        </div> */}
     </div>
   );
 };
